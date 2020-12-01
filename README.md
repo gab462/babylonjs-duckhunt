@@ -1,6 +1,8 @@
-# BABYLON.js Typescript Starter
+# Babylon.js Duck Hunt
 
-This Repository contains a sample BABYLON.js application.
+Projeto para AF de Computacao grafica na UNIFACENS. Por Gustavo Araujo Borges, 180995.
+
+Template by [oktinaut](https://github.com/oktinaut/babylonjs-typescript-starter)
 
 ## Setup
 
@@ -25,20 +27,6 @@ Run the following commands from within the repository's root folder to build the
 - `src/` *source code folder*
 
     - `index.ts` *application entry point*
-
-    - `glsl.d.ts` *typescript definition file to resolve .glsl files*
-
-    - `Materials/` *folder for custom materials/shaders*
-
-        - `SampleMaterial.ts` *sample custom material*
-
-        - `Shaders/` *folder containing GLSL shader code*
-
-            - `Sample/` *folder containing sample shader* 
-
-                - `sample.fragment.glsl` *sample fragment shader*
-
-                - `sample.vertex.glsl` *sample vertex shader*
 
 - `public` *folder containing static assets*
 
