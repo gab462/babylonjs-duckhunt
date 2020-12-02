@@ -1,6 +1,6 @@
 # Babylon.js Duck Hunt
 
-Projeto para a AF de Computacao Grafica na UNIFACENS. Por Gustavo Araujo Borges, 180995 e Luiz Antonio Buffolo 180361.
+Projeto para a AF de Computacao Grafica na UNIFACENS. Por Gustavo Araujo Borges 180995 e Luiz Antonio Buffolo 180361.
 
 Template by [oktinaut](https://github.com/oktinaut/babylonjs-typescript-starter).
 
