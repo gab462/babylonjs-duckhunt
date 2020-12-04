@@ -22,7 +22,6 @@ export class Duck {
 				return true;
 			}
 		}
-
 		return false;
 	}
 

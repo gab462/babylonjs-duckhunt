@@ -3,28 +3,39 @@ import { Mesh, MeshBuilder, Scene, StandardMaterial, Texture, Vector3 } from "ba
 export class Dog {
 	private mesh: Mesh;
 	private isActive: boolean = false;
-    private position: Vector3 = new Vector3(0,0,1);
+	private isUp: boolean;
 
 	constructor(scene : Scene) {
 		this.mesh = MeshBuilder.CreatePlane("dog", {size: 1}, scene);
 		this.mesh.material = new StandardMaterial("dogSprite", scene);
-        this.mesh.material.backFaceCulling = false;
+		this.mesh.material.backFaceCulling = false;
+		this.mesh.position.z = -1;
+		this.mesh.position.y = -3;
 	}
 
 	public start(ducks: number): void {
-        this.isActive = true;
-        this.mesh.setEnabled(true);
+		this.isActive = true;
+		this.isUp = true;
+        //this.mesh.setEnabled(true);
         (<StandardMaterial>this.mesh.material).diffuseTexture = new Texture(`textures/dog${ducks}.png`, this.mesh.getScene());
         (<StandardMaterial>this.mesh.material).diffuseTexture.hasAlpha = true;
     }
 
 	public animate(): void {
-		if(!this.mesh.isEnabled()) { // Also checks if it was disabled externally
-			this.isActive = false;
-			this.mesh.setEnabled(false);
+		if(this.isActive) { // Also checks if it was disabled externally
+			if(this.isUp){
+				this.mesh.position.z += 0.1;
+			}
+			else{
+				this.mesh.position.z -= 0.1;
+			}
 		}
-		else if(this.isActive) {
-			// Animate position
+
+		if(this.mesh.position.z > 4.5){
+			this.isUp = false;
+		}
+		if(this.mesh.position.z < -1) {
+			this.isActive = false;
 		}
 	}
 }

@@ -3,8 +3,8 @@ import { Mesh, MeshBuilder, Scene, StandardMaterial, Texture, Vector3 } from "ba
 export class Background {
 	private mesh: Mesh;
 	private shotMark: Mesh;
-	private shotFrameNumber: number = 5;
-	private shotFrames: number = 0;
+	private shotFrameNumber: number = 0;
+	private shotFrames: number = 5;
 
 	constructor(texture : string, scene : Scene) {
 		this.mesh = MeshBuilder.CreatePlane("bg", {size: 10}, scene);
