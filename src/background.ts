@@ -2,9 +2,9 @@ import { Mesh, MeshBuilder, Scene, StandardMaterial, Texture, Vector3 } from "ba
 
 export class Background {
 	private mesh: Mesh;
-	private shotFrameNumber: number;
-	private shotFrames: number;
 	private shotMark: Mesh;
+	private shotFrameNumber: number = 5;
+	private shotFrames: number = 0;
 
 	constructor(texture : string, scene : Scene) {
 		this.mesh = MeshBuilder.CreatePlane("bg", {size: 10}, scene);
@@ -15,17 +15,15 @@ export class Background {
 		(<StandardMaterial>this.mesh.material).diffuseTexture.hasAlpha = true;
 		(<StandardMaterial>this.mesh.material).disableLighting = false;
 
-		this.shotFrameNumber = 0;
-		this.shotFrames = 5;
 		this.shotMark = MeshBuilder.CreatePlane("shot", {size: 0.5}, scene);
 		this.shotMark.setEnabled(false);
 	}
 
-	getMesh() : Mesh {
+	public getMesh(): Mesh {
 		return this.mesh;
 	}
 
-	shoot(position : Vector3) : void {
+	public shoot(position: Vector3): void {
 		this.shotFrameNumber = this.shotFrames;
 		this.shotMark.setEnabled(true);
 		this.shotMark.position = position;
@@ -33,7 +31,7 @@ export class Background {
 		(<StandardMaterial>this.mesh.material).disableLighting = true;
 	}
 
-	animate() : void {
+	public animate(): void {
 		if (this.shotFrameNumber > 0) {
 			this.shotFrameNumber--;
 		}
