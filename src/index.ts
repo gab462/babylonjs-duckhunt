@@ -15,7 +15,7 @@ camera.lockedTarget = bg.getMesh();
 
 scene.onPointerDown = (_, pickResult) => {
 	if (pickResult.hit) {
-		bg.shoot(new Vector3 ( pickResult.pickedPoint.x, pickResult.pickedPoint.y, 1 ) );
+		bg.shoot(new Vector3 ( pickResult.pickedPoint.x, pickResult.pickedPoint.y, 0.1 ) );
 	}
 };
 
