@@ -2,5 +2,5 @@ import { Mesh, MeshBuilder, Scene, StandardMaterial, Texture, Vector3 } from "ba
 
 export class Auxiliar{
     public static count: number = 0;
-    public static ducks: number;
+    public static ducks: number = 0;
 }

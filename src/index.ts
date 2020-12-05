@@ -21,8 +21,10 @@ camera.lockedTarget = bg.getMesh();
 scene.onPointerDown = (_, pickResult) => {
 	if (pickResult.hit) {
 		bg.shoot(new Vector3(pickResult.pickedPoint.x, pickResult.pickedPoint.y, 0.1));
-		if(pickResult.pickedMesh.name == "duck")
-		pickResult.pickedMesh.setEnabled(false);
+		if(pickResult.pickedMesh.name == "duck"){
+			pickResult.pickedMesh.setEnabled(false);
+			Auxiliar.ducks += 1;
+		}
 	}
 };
 
