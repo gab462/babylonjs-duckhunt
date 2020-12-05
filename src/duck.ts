@@ -1,4 +1,5 @@
 import { Mesh, MeshBuilder, Scene, StandardMaterial, Texture, Vector3 } from "babylonjs";
+import { Auxiliar } from "./auxiliar";
 
 export class Duck {
 	private mesh: Mesh;
@@ -10,7 +11,6 @@ export class Duck {
 
 	constructor(upperLeft: Vector3, bottomRight: Vector3, scene: Scene) {
 		this.mesh = MeshBuilder.CreatePlane("duck", { size: 1 }, scene);
-
 		this.mesh.material = new StandardMaterial("duckSprite", scene);
 		this.mesh.material.backFaceCulling = false;
 		(<StandardMaterial>this.mesh.material).diffuseTexture = new Texture("textures/duck.png", scene);
@@ -36,12 +36,19 @@ export class Duck {
 		this.mesh.position.y = this.startPoint.y;
 		this.mesh.setEnabled(true);
 		this.randomX = (Math.random() * 0.2) - 0.1;
+		Auxiliar.count += 1;
+
+		//Código de corno
 		if(this.randomX < 0){
 			this.mesh.rotation.y = Math.PI;
 		}
 		else{
 			this.mesh.rotation.y = 0;
 		}
+	}
+
+	public getMesh(): Mesh{
+		return this.mesh;
 	}
 
 	public animate(): void {
