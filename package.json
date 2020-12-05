@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "babylonjs": "^4.1.0",
+    "babylonjs-gui": "^4.2.0",
     "webpack-merge": "^4.2.2"
   }
 }
